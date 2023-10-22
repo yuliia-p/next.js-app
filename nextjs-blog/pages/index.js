@@ -4,16 +4,12 @@ import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
 
 import { getSortedPostsData } from '../lib/posts';
-import {fetchDataFromAPI} from '../lib/movies'
 
 export async function getStaticProps() {
   const allPostsData = getSortedPostsData();
-  const allMovies = await fetchDataFromAPI()
-  console.log('allMovies');
   return {
     props: {
-      allPostsData,
-      allMovies
+      allPostsData
     },
   };
 }
@@ -47,10 +43,6 @@ export default function Home({ allPostsData }, {allMovies}) {
             </li>
           ))}
         </ul>
-      </section>
-      <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>
-        <h2 className={utilStyles.headingLg}>Movies</h2>
-          {allMovies}
       </section>
     </Layout>
   );
