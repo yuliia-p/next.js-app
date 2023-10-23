@@ -1,8 +1,9 @@
 import Head from 'next/head';
 import styles from './layout.module.css';
+import LayoutStyles from './layout.module.css';
 import Link from 'next/link';
 
-const name = 'Yuliia Pchelintseva';
+const name = 'TOPList';
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
@@ -23,20 +24,39 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        <h1 className={styles.siteTitle}>
+      <header className={LayoutStyles.header}>
+        <h1 className={LayoutStyles.siteTitle}>
           {home ? (
-            name
+            "TOPList"
           ) : (
             <Link href="/">
-              {name}
+              TOPList
             </Link>
           )}
         </h1>
+        <nav className={LayoutStyles.nav}>
+          <ul>
+            <li>
+              <Link href="/">
+                Top Rated Movies
+              </Link>
+            </li>
+            <li>
+              <Link href="/now-playing">
+                Now Playing Movies
+              </Link>
+            </li>
+            <li>
+              <Link href="/upcoming">
+                Upcoming Movies
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className={LayoutStyles.backToHome}>
           <Link href="/">← Back to home</Link>
         </div>
       )}

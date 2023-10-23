@@ -130,19 +130,15 @@ export default function Home() {
 
   return (
     <Layout>
-  <div>
-    <h1>Top Rated Movies:</h1>
-    <section>
-      <Link href="/now-playing">View Now Playing Movies</Link>
-    </section>
+  <section>
     <ul className={utilStyles.moviesList}>
       {movies.map((movie) => (
         <li key={movie.id} className={utilStyles.movieItem}>
           <img src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`} alt={movie.title} />
+          <p className={utilStyles.movieRating}>Rating: {movie.vote_average}</p>
           <div className={utilStyles.movieInfo}>
             <p className={utilStyles.movieTitle}>Title: {movie.title}</p>
             <p className={utilStyles.movieOverview}>{movie.overview}</p>
-            <p className={utilStyles.movieRating}>Rating: {movie.vote_average}</p>
             {/* Add more movie details as needed */}
           </div>
         </li>
@@ -151,7 +147,7 @@ export default function Home() {
     <button className={utilStyles.loadMoreButton} onClick={loadNextPage}>
       Load More
     </button>
-  </div>
+  </section>
 </Layout>    
   );
 }

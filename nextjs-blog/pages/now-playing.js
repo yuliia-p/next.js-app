@@ -40,7 +40,6 @@ export default function NowPlaying() {
 
   return (
     <Layout>
-      <Link style={{ textDecoration: 'underline', cursor: 'pointer' }} href="/">Back to Top Rated Movies</Link>
       <div>
         <h1>Now Playing Movies:</h1>
         <ul className={utilStyles.moviesList}>
@@ -50,10 +49,10 @@ export default function NowPlaying() {
                 src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
                 alt={movie.title}
               />
+              <p className={utilStyles.movieRating}>Rating: {movie.vote_average}</p>
               <div className={utilStyles.movieInfo}>
                 <p className={utilStyles.movieTitle}>Title: {movie.title}</p>
                 <p className={utilStyles.movieOverview}>{movie.overview}</p>
-                <p className={utilStyles.movieRating}>Rating: {movie.vote_average}</p>
                 {/* Add more movie details as needed */}
               </div>
             </li>
