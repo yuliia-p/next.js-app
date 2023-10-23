@@ -1,15 +1,22 @@
+.main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* Three equal-width columns */
+  gap: 16px; /* Gap between columns */
+  padding: 16px;
+}
+
+/* Add a max-width to the container to prevent columns from exceeding the available width */
 .container {
-  max-width: 36rem;
-  padding: 0 1rem;
-  margin: 3rem auto 6rem;
+  max-width: 100%; /* Adjust this value as needed */
+  margin: 0 auto;
+  padding: 0 16px;
+  background-color: #333; /* Dark background color */
+  color: #fff; /* White text color */
 }
 
-.header {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-}
-
-.backToHome {
-  margin: 3rem 0 0;
+/* Define styles for individual column items (adjust width as needed) */
+.main > div {
+  background-color: #444; /* Adjust background color for individual items */
+  padding: 16px;
+  color: #fff;
 }
