@@ -1,10 +1,9 @@
 import Head from 'next/head';
-import Image from 'next/image';
 import styles from './layout.module.css';
-import utilStyles from '../styles/utils.module.css';
+import LayoutStyles from './layout.module.css';
 import Link from 'next/link';
 
-const name = 'Yuliia Pchelintseva';
+const name = 'TOPList';
 export const siteTitle = 'Next.js Sample Website';
 
 export default function Layout({ children, home }) {
@@ -25,42 +24,39 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={styles.header}>
-        {home ? (
-          <>
-            <Image
-              priority
-              src="/images/profile.jpg"
-              className={utilStyles.borderCircle}
-              height={144}
-              width={144}
-              alt=""
-            />
-            <h1 className={utilStyles.heading2Xl}>{name}</h1>
-          </>
-        ) : (
-          <>
+      <header className={LayoutStyles.header}>
+        <h1 className={LayoutStyles.siteTitle}>
+          {home ? (
+            "TOPList"
+          ) : (
             <Link href="/">
-              <Image
-                priority
-                src="/images/profile.jpg"
-                className={utilStyles.borderCircle}
-                height={108}
-                width={108}
-                alt=""
-              />
+              TOPList
             </Link>
-            <h2 className={utilStyles.headingLg}>
-              <Link href="/" className={utilStyles.colorInherit}>
-                {name}
+          )}
+        </h1>
+        <nav className={LayoutStyles.nav}>
+          <ul>
+            <li>
+              <Link href="/">
+                Top Rated Movies
               </Link>
-            </h2>
-          </>
-        )}
+            </li>
+            <li>
+              <Link href="/now-playing">
+                Now Playing Movies
+              </Link>
+            </li>
+            <li>
+              <Link href="/upcoming">
+                Upcoming Movies
+              </Link>
+            </li>
+          </ul>
+        </nav>
       </header>
       <main>{children}</main>
       {!home && (
-        <div className={styles.backToHome}>
+        <div className={LayoutStyles.backToHome}>
           <Link href="/">← Back to home</Link>
         </div>
       )}
