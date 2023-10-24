@@ -4,7 +4,7 @@ import LayoutStyles from './layout.module.css';
 import Link from 'next/link';
 
 const name = 'TOPList';
-export const siteTitle = 'Next.js Sample Website';
+export const siteTitle = 'TOPList';
 
 export default function Layout({ children, home }) {
   return (
@@ -24,16 +24,17 @@ export default function Layout({ children, home }) {
         <meta name="og:title" content={siteTitle} />
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
-      <header className={LayoutStyles.header}>
-        <h1 className={LayoutStyles.siteTitle}>
+      <header className={LayoutStyles.spanTitle}>
+        
           {home ? (
-            "TOPList"
+              {name}
+            
           ) : (
             <Link href="/">
-              TOPList
+              {name}
             </Link>
           )}
-        </h1>
+        
         <nav className={LayoutStyles.nav}>
           <ul>
             <li>

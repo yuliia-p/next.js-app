@@ -1,10 +1,24 @@
 /* utils.module.css */
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+
 .moviesList {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(3, 1fr);
+  grid-template-columns: repeat(1, 1fr);
   gap: 16px;
+}
+
+@media (min-width: 768px) {
+  .moviesList {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .moviesList {
+    grid-template-columns: repeat(4, 1fr);
+  }
 }
 
 .movieItem {
@@ -14,7 +28,7 @@
   display: flex;
   flex-direction: column; /* Stack children vertically */
   align-items: center; /* Center children horizontally */
-  text-align: center; /* Center text within container */
+  text-align: center; /* Center text within the container */
 }
 
 .movieInfo {
@@ -27,6 +41,7 @@
 }
 
 .movieOverview {
+  font-size: 14px;
   color: #ccc;
   margin: 0;
   text-align: start;
@@ -36,18 +51,50 @@
   margin: 0;
 }
 
+.loadMoreButtonDiv {
+  text-align: center;
+}
+/* utils.module.css */
 .loadMoreButton {
-  margin-top: 16px;
-  background-color: #FFD700;
-  color: #fff;
-  padding: 8px 16px;
-  border: none;
+  font-size: 16px;
+  font-weight: 200;
+  letter-spacing: 1px;
+  padding: 13px 20px 13px;
+  outline: 0;
   cursor: pointer;
+  position: relative;
+  background-color: rgba(0, 0, 0, 0);
+  border: 1px solid black;
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: manipulation;
+  z-index: 1;
 }
 
-.loadMoreButton:hover {
-  background-color: #e3c102;
+.loadMoreButton:after {
+  content: "";
+  background-color: #ffe54c;
+  width: 100%;
+  z-index: -1;
+  position: absolute;
+  height: 100%;
+  top: 7px;
+  left: 7px;
+  transition: 0.2s;
 }
+
+.loadMoreButton:hover:after {
+  top: 0px;
+  left: 0px;
+}
+
+@media (min-width: 768px) {
+  .loadMoreButton {
+    padding: 13px 50px 13px;
+  }
+}
+
+
 /* Navigation styles */
 .nav ul {
   list-style: none;

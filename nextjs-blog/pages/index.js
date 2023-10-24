@@ -144,9 +144,11 @@ export default function Home() {
         </li>
       ))}
     </ul>
-    <button className={utilStyles.loadMoreButton} onClick={loadNextPage}>
-      Load More
-    </button>
+    <div className={utilStyles.loadMoreButtonDiv}>
+      <button className={utilStyles.loadMoreButton} onClick={loadNextPage}>
+        Load More
+      </button>
+    </div>
   </section>
 </Layout>    
   );
