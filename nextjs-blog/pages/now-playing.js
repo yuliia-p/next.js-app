@@ -41,7 +41,6 @@ export default function NowPlaying() {
   return (
     <Layout>
       <div>
-        <h1>Now Playing Movies:</h1>
         <ul className={utilStyles.moviesList}>
           {movies.map((movie) => (
             <li key={movie.id} className={utilStyles.movieItem}>
@@ -58,9 +57,11 @@ export default function NowPlaying() {
             </li>
           ))}
         </ul>
-        <button className={utilStyles.loadMoreButton} onClick={loadNextPage}>
-          Load More
-        </button>
+        <div className={utilStyles.loadMoreButtonDiv}>
+          <button className={utilStyles.loadMoreButton} onClick={loadNextPage}>
+            Load More
+          </button>
+        </div>
       </div>
     </Layout>
   );

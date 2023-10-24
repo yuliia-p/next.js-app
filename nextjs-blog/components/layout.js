@@ -2,17 +2,21 @@ import Head from 'next/head';
 import styles from './layout.module.css';
 import LayoutStyles from './layout.module.css';
 import Link from 'next/link';
+import { useRouter } from 'next/router'; // Import useRouter
+
 
 const name = 'TOPList';
 export const siteTitle = 'TOPList';
 
 export default function Layout({ children, home }) {
+  const router = useRouter();
+  
   return (
     <div className={styles.container}>
       <Head>
         <link rel="icon" href="/favicon.ico" />
         <meta
-          name="description"
+          name="TOPList"
           content="Learn how to build a personal website using Next.js"
         />
         <meta
@@ -25,31 +29,21 @@ export default function Layout({ children, home }) {
         <meta name="twitter:card" content="summary_large_image" />
       </Head>
       <header className={LayoutStyles.spanTitle}>
-        
-          {home ? (
-              {name}
-            
-          ) : (
-            <Link href="/">
-              {name}
-            </Link>
-          )}
-        
         <nav className={LayoutStyles.nav}>
           <ul>
-            <li>
+            <li className={router.pathname === '/' ? 'active' : ''}>
               <Link href="/">
-                Top Rated Movies
+                Top Rated 
               </Link>
             </li>
-            <li>
+            <li className={router.pathname === '/now-playing' ? 'active' : ''}>
               <Link href="/now-playing">
-                Now Playing Movies
+                Now Playing 
               </Link>
             </li>
-            <li>
+            <li className={router.pathname === '/upcoming' ? 'active' : ''}>
               <Link href="/upcoming">
-                Upcoming Movies
+                Upcoming 
               </Link>
             </li>
           </ul>
