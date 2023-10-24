@@ -38,7 +38,7 @@
 
 .loadMoreButton {
   margin-top: 16px;
-  background-color: #0070f3;
+  background-color: #FFD700;
   color: #fff;
   padding: 8px 16px;
   border: none;
@@ -46,7 +46,7 @@
 }
 
 .loadMoreButton:hover {
-  background-color: #0056b3;
+  background-color: #e3c102;
 }
 /* Navigation styles */
 .nav ul {
