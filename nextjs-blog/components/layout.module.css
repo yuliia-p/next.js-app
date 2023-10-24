@@ -1,8 +1,8 @@
 /* Add a max-width to the container to prevent columns from exceeding the available width */
 .container {
-  max-width: 100%; /* Adjust this value as needed */
+  max-width: 100%; 
   margin: 0 auto;
-  padding: 0 16px;
+  /* padding: 0 16px; */
   background-color: #333; /* Dark background color */
   color: #fff; /* White text color */
 }
@@ -13,25 +13,58 @@
   padding: 16px;
   color: #fff;
 }
+
+.spanTitle {
+  font-family: 'Bebas Neue', cursive;
+  font-size: 3em;
+  position: sticky;
+  background-image: linear-gradient(gold, gold);
+  background-size: 100% 10px;
+  background-repeat: no-repeat;
+  background-position: 100% 0%;
+  transition: background-size 0.7s, background-position 0.5s ease-in-out;
+}
+
+.spanTitle:hover {
+  background-size: 100% 100%;
+  background-position: 0% 100%;
+  transition: background-position 0.7s, background-size 0.5s ease-in-out;
+}
+
+
 /* Navigation styles */
 .nav ul {
   list-style: none;
   display: flex;
   padding: 0;
+  margin: 0;
+  justify-content: space-around;
 }
 
 .nav li {
   margin-right: 16px;
+  color: white;
+  /* color: #FFD700; */
+
 }
 
 /* Style the <Link> component itself */
 .nav li a {
   text-decoration: none;
-  color: #fff;
+  color: inherit;
   font-weight: bold;
 }
 
-/* Style the <Link> component on hover */
 .nav li a:hover {
-  color: #FFD700; /* Gold color on hover */
+  color: #333;
 }
+
+.nav li.active {
+  color:#FFD700 !important;
+}
+
+.nav li.active a {
+  /* Define the style for active links */
+  color: inherit; /* Gold color for active links */
+}
+

@@ -42,16 +42,14 @@ export default function Upcoming({ upcomingMovies }) {
   return (
     <Layout>
       <div>
-        <h1>Upcoming Movies</h1>
         <ul className={utilStyles.moviesList}>
           {upcomingMovies.results.map((movie) => (
             <li key={movie.id} className={utilStyles.movieItem}>
               <img src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`} alt={movie.title} />
               <p className={utilStyles.movieRating}>Rating: {movie.vote_average}</p>
               <div className={utilStyles.movieInfo}>
-                <p className={utilStyles.movieTitle}>Title: {movie.title}</p>
+                <p className={utilStyles.movieTitle}>{movie.title}</p>
                 <p className={utilStyles.movieOverview}>{movie.overview}</p>
-                
                 {/* Add more movie details as needed */}
               </div>
             </li>
