@@ -48,18 +48,21 @@ export default function Home() {
           {movies.map((movie) => (
             <li key={movie.id} className={utilStyles.movieItem}>
               <img src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`} alt={movie.title} />
-              <p className={utilStyles.movieTitle}>Title: {movie.title}</p>
+              <button
+                style ={{margin: '1rem 0'}}
+                className={utilStyles.loadMoreButton}
+                onClick={() => router.push(`/movie/${movie.id}`)}
+              >
+                {/* More Details */}
+                {movie.title}
+              </button>
+              {/* <p className={utilStyles.movieTitle}>Title: {movie.title}</p> */}
               <p className={utilStyles.movieRating}>Rating: {movie.vote_average}</p>
               <div className={utilStyles.movieInfo}>
                 <p className={utilStyles.movieOverview}>{movie.overview}</p>
                 {/* Add more movie details as needed */}
               </div>
-              <button
-                className={utilStyles.loadMoreButton}
-                onClick={() => router.push(`/movie/${movie.id}`)}
-              >
-                More Details
-              </button>
+              
             </li>
           ))}
         </ul>
