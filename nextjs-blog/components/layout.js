@@ -10,7 +10,11 @@ export const siteTitle = 'TOPList';
 
 export default function Layout({ children, home }) {
   const router = useRouter();
-  
+  console.log('Current path:', router.pathname);
+
+  // const liElements = document.querySelectorAll('.nav li');
+  // console.log('LI Elements:', liElements);
+
   return (
     <div className={styles.container}>
       <Head>
@@ -31,17 +35,17 @@ export default function Layout({ children, home }) {
       <header className={LayoutStyles.spanTitle}>
         <nav className={LayoutStyles.nav}>
           <ul>
-            <li className={router.pathname === '/' ? 'active' : ''}>
+            <li className={router.pathname === '/' ? styles.active : ''}>
               <Link href="/">
                 Top Rated 
               </Link>
             </li>
-            <li className={router.pathname === '/now-playing' ? 'active' : ''}>
+            <li className={router.pathname === '/now-playing' ? styles.active : ''}>
               <Link href="/now-playing">
                 Now Playing 
               </Link>
             </li>
-            <li className={router.pathname === '/upcoming' ? 'active' : ''}>
+            <li className={router.pathname === '/upcoming' ? styles.active : ''}>
               <Link href="/upcoming">
                 Upcoming 
               </Link>
@@ -58,3 +62,4 @@ export default function Layout({ children, home }) {
     </div>
   );
 }
+console.log()

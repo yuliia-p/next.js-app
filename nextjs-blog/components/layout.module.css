@@ -41,15 +41,10 @@
   justify-content: space-around;
 }
 
-.nav li {
-  margin-right: 16px;
-  color: white;
-}
-
 /* Style the <Link> component itself */
 .nav li a {
   text-decoration: none;
-  color: inherit;
+  color: white;
   font-weight: bold;
 }
 
@@ -58,12 +53,11 @@
 }
 
 .nav li.active {
-  color:#1C1C1C !important;
+  color: #E9FF70;
 }
 
 .nav li.active a {
-  /* Define the style for active links */
-  color: inherit; /* Gold color for active links */
+  color: inherit !important;
 }
 
 .backToHome {
