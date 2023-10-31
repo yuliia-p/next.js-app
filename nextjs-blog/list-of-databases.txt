@@ -1,0 +1,12 @@
+                                                                 List of databases
+        Name        |       Owner        | Encoding | Locale Provider |   Collate   |    Ctype    | ICU Locale | ICU Rules |   Access privileges   
+--------------------+--------------------+----------+-----------------+-------------+-------------+------------+-----------+-----------------------
+ mymovies           | postgres           | UTF8     | icu             | en_US.UTF-8 | en_US.UTF-8 | en-US      |           | 
+ postgres           | postgres           | UTF8     | icu             | en_US.UTF-8 | en_US.UTF-8 | en-US      |           | 
+ template0          | postgres           | UTF8     | icu             | en_US.UTF-8 | en_US.UTF-8 | en-US      |           | =c/postgres          +
+                    |                    |          |                 |             |             |            |           | postgres=CTc/postgres
+ template1          | postgres           | UTF8     | icu             | en_US.UTF-8 | en_US.UTF-8 | en-US      |           | =c/postgres          +
+                    |                    |          |                 |             |             |            |           | postgres=CTc/postgres
+ yuliiapchelintseva | yuliiapchelintseva | UTF8     | icu             | en_US.UTF-8 | en_US.UTF-8 | en-US      |           | 
+(5 rows)
+
