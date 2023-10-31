@@ -3,8 +3,8 @@
   max-width: 100%; 
   margin: 0 auto;
   /* padding: 0 16px; */
-  background-color: #333; /* Dark background color */
-  color: #fff; /* White text color */
+  background-color: #1C1C1C; /* Dark background color */
+  /* color: #fff; White text color */
 }
 
 /* Define styles for individual column items (adjust width as needed) */
@@ -18,7 +18,7 @@
   font-family: 'Bebas Neue', cursive;
   font-size: 3em;
   position: sticky;
-  background-image: linear-gradient(gold, gold);
+  background-image: linear-gradient(#E9FF70, #E9FF70);
   background-size: 100% 10px;
   background-repeat: no-repeat;
   background-position: 100% 0%;
@@ -41,17 +41,10 @@
   justify-content: space-around;
 }
 
-.nav li {
-  margin-right: 16px;
-  color: white;
-  /* color: #FFD700; */
-
-}
-
 /* Style the <Link> component itself */
 .nav li a {
   text-decoration: none;
-  color: inherit;
+  color: white;
   font-weight: bold;
 }
 
@@ -60,11 +53,16 @@
 }
 
 .nav li.active {
-  color:#FFD700 !important;
+  color: #E9FF70;
 }
 
 .nav li.active a {
-  /* Define the style for active links */
-  color: inherit; /* Gold color for active links */
+  color: inherit !important;
 }
 
+.backToHome {
+  margin-top: 2rem;
+  color:#fff;
+  text-align: center;
+  font-family: 'Bebas Neue', serif;
+}

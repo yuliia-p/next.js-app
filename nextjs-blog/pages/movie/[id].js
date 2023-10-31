@@ -34,18 +34,25 @@ function MovieDetails() {
     
       return (
         <Layout>
-          <div className={utilStyles.movieItem}>
-            <div></div>
+          <div>
           {movieDetails && (
-            <div>
-              <img src={`https://image.tmdb.org/t/p/w185${movieDetails.poster_path}`} alt={movieDetails.title} />
-              <h2>{movieDetails.original_title}</h2>
-              <h3>{movieDetails.tagline}</h3>
-              <p>Overview: {movieDetails.overview}</p>
-              <p>Release Date: {movieDetails.release_date}</p>
-              <p>Genres: {movieDetails.genres.map(genre => genre.name).join(', ')}</p>
-              <p>Runtime: {movieDetails.runtime} minutes</p>
+            <div className={utilStyles.movieDetails}>
+               <div>
+                <img 
+                style={{ width: '300px'}}
+                src={`https://image.tmdb.org/t/p/w185${movieDetails.poster_path}`} 
+                alt={movieDetails.title} />
+              </div>
+              <div style={{padding: '16px'}}>
+                <h2 className={utilStyles.movieTitle}>{movieDetails.original_title}</h2>
+                <h3>{movieDetails.tagline}</h3>
+                <p>Overview: {movieDetails.overview}</p>
+                <p>Release Date: {movieDetails.release_date}</p>
+                <p>Genres: {movieDetails.genres.map(genre => genre.name).join(', ')}</p>
+                <p>Runtime: {movieDetails.runtime} minutes</p>
               {/* Add more movie details as needed */}
+              </div>
+              
             </div>
           )}
         </div>

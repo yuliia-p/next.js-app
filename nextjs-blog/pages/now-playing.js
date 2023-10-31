@@ -2,10 +2,12 @@ import Layout from '../components/layout';
 import { useState, useEffect } from 'react';
 import utilStyles from '../styles/utils.module.css';
 import Link from 'next/link';
+import { useRouter } from 'next/router';
 
 export default function NowPlaying() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1); // Initialize with page 1
+  const router = useRouter(); // Initialize the router here
 
   const loadNextPage = () => {
     // Increment the page number and update the state
@@ -48,9 +50,14 @@ export default function NowPlaying() {
                 src={`https://image.tmdb.org/t/p/w185${movie.poster_path}`}
                 alt={movie.title}
               />
+              <button
+                style ={{margin: '1rem 0'}}
+                className={utilStyles.loadMoreButton}
+                onClick={() => router.push(`/movie/${movie.id}`)}
+              >{movie.title}
+                </button>
               <p className={utilStyles.movieRating}>Rating: {movie.vote_average}</p>
               <div className={utilStyles.movieInfo}>
-                <p className={utilStyles.movieTitle}>Title: {movie.title}</p>
                 <p className={utilStyles.movieOverview}>{movie.overview}</p>
                 {/* Add more movie details as needed */}
               </div>
