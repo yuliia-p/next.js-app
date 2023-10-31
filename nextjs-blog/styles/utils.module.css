@@ -1,14 +1,15 @@
 /* utils.module.css */
 @import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
 
+/* Common styles for .moviesList */
 .moviesList {
   list-style: none;
   padding: 0;
   display: grid;
-  grid-template-columns: repeat(1, 1fr);
   gap: 16px;
 }
 
+/* Responsive grid layout */
 @media (min-width: 768px) {
   .moviesList {
     grid-template-columns: repeat(2, 1fr);
@@ -16,7 +17,6 @@
   .loadMoreButton {
     padding: 13px 50px 13px;
   }
- 
 }
 
 @media (min-width: 1024px) {
@@ -25,43 +25,43 @@
   }
 }
 
-.movieItem {
+/* Shared styles for .movieItem and .movieDetails */
+.movieItem,
+.movieDetails {
   background-color: #444;
-  padding: 16px;
   color: #fff;
   display: flex;
-  flex-direction: column; /* Stack children vertically */
-  align-items: center; /* Center children horizontally */
-  text-align: center; /* Center text within the container */
+  align-items: center;
+  text-align: center;
+  flex-direction: column;
 }
 
-.movieInfo {
+.movieItem {
   padding: 16px;
 }
 
-.movieTitle {
-  font-family: 'Bebas Neue', serif;
-  font-size: 20px;
-  font-weight: 600;
-  letter-spacing: 1px;
-  background-color: #ffe54c;
-  color: #333;
-  border: 1px solid black;
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  z-index: 1;
+/* Responsive styles for .movieDetails */
+@media (min-width: 768px) {
+  .movieDetails {
+    margin: 16px;
+    flex-direction: row;
+    text-align: start;
+  }
 }
+
+/* Styles for .spanTitle */
 .spanTitle {
   font-family: 'Bebas Neue', cursive;
   font-size: 3em;
   position: sticky;
-  background-image: linear-gradient(gold, gold);
+  background-image: linear-gradient(#E9FF70, #E9FF70);
   background-size: 100% 10px;
   background-repeat: no-repeat;
   background-position: 100% 0%;
   transition: background-size 0.7s, background-position 0.5s ease-in-out;
 }
+
+/* Styles for .movieOverview */
 .movieOverview {
   font-size: 14px;
   color: #ccc;
@@ -69,24 +69,14 @@
   text-align: start;
 }
 
+/* Styles for .movieRating */
 .movieRating {
   margin: 0;
   font-family: 'Bebas Neue', serif;
   font-weight: 100;
 }
 
-.movieDetails {
-  background-color: #444;
-  /* padding: 16px; */
-  color: #fff;
-  display: flex;
-  margin: 16px;
-}
-
-.loadMoreButtonDiv {
-  text-align: center;
-}
-
+/* Styles for .loadMoreButton and its hover effect */
 .loadMoreButton {
   font-size: 16px;
   font-weight: 200;
@@ -98,14 +88,13 @@
   background-color: rgba(0, 0, 0, 0);
   border: 1px solid black;
   user-select: none;
-  -webkit-user-select: none;
   touch-action: manipulation;
   z-index: 1;
 }
 
 .loadMoreButton:after {
   content: "";
-  background-color: #ffe54c;
+  background-color: #E9FF70;
   width: 100%;
   z-index: -1;
   position: absolute;
@@ -120,23 +109,6 @@
   left: 0px;
 }
 
-@media (min-width: 768px) {
-  .loadMoreButton {
-    padding: 13px 50px 13px;
-  }
-}
-@media (min-width: 768px) {
-  .movieDetails {
-    background-color: #444;
-    /* padding: 16px; */
-    color: #fff;
-    display: flex;
-    margin: 16px;
-    flex-direction: column;
-    align-items: center;
-  }
-}
-
 /* Navigation styles */
 .nav ul {
   list-style: none;
@@ -144,18 +116,22 @@
   padding: 0;
 }
 
+/* Styles for navigation links */
 .nav li {
   margin-right: 16px;
 }
 
-/* Style the <Link> component itself */
 .nav li a {
   text-decoration: none;
   color: #fff;
   font-weight: bold;
 }
 
-/* Style the <Link> component on hover */
+/* Hover effect for navigation links */
 .nav li a:hover {
-  color: #FFD700; /* Gold color on hover */
+  color: #E9FF70; /* Gold color on hover */
+}
+
+.loadMoreButtonDiv {
+  text-align: center;
 }

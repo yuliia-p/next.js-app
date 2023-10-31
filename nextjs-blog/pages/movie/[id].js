@@ -34,10 +34,7 @@ function MovieDetails() {
     
       return (
         <Layout>
-          <div 
-          // className={utilStyles.movieItem}
-          >
-            
+          <div>
           {movieDetails && (
             <div className={utilStyles.movieDetails}>
                <div>
