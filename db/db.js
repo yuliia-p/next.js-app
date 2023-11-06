@@ -7,7 +7,7 @@ const db = pgp({
   port: 5432,             // Your PostgreSQL port
   user: 'postgres',   // Your PostgreSQL username
   password: 'junegloom', // Your PostgreSQL password
-  database: 'myMovies' // Name of your PostgreSQL database
+  database: 'mymovies' // Name of your PostgreSQL database
 });
 
 // Export the connected database instance

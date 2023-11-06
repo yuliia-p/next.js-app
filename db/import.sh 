@@ -1,0 +1,2 @@
+psql -U your_username -d your_database_name -a -f db/schema.sql
+psql -U your_username -d your_database_name -a -f db/data.sql
