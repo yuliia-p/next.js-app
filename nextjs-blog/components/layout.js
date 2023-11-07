@@ -3,7 +3,8 @@ import styles from './layout.module.css';
 import LayoutStyles from './layout.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router'; // Import useRouter
-
+import RegisterButton from '../components/RegisterButton';
+import RegisterForm from './RegisterForm';
 
 const name = 'TOPList';
 export const siteTitle = 'TOPList';
@@ -36,20 +37,16 @@ export default function Layout({ children, home }) {
         <nav className={LayoutStyles.nav}>
           <ul>
             <li className={router.pathname === '/' ? styles.active : ''}>
-              <Link href="/">
-                Top Rated 
-              </Link>
+              <Link href="/">Top Rated</Link>
             </li>
             <li className={router.pathname === '/now-playing' ? styles.active : ''}>
-              <Link href="/now-playing">
-                Now Playing 
-              </Link>
+              <Link href="/now-playing">Now Playing</Link>
             </li>
             <li className={router.pathname === '/upcoming' ? styles.active : ''}>
-              <Link href="/upcoming">
-                Upcoming 
-              </Link>
+              <Link href="/upcoming">Upcoming</Link>
             </li>
+            {/* Include the RegisterButton component here */}
+            <li className={styles.registerButton}><RegisterButton /></li>
           </ul>
         </nav>
       </header>
