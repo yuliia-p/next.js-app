@@ -1,9 +1,24 @@
-import Link from 'next/link';
+import React, { useState } from 'react';
+import RegisterForm from './RegisterForm';
+import utilStyles from '../styles/utils.module.css';
 
-export default function RegisterButton() {
+const RegisterButton = () => {
+  const [showModal, setShowModal] = useState(false);
+
+  const openModal = () => {
+    setShowModal(true);
+  };
+
+  const closeModal = () => {
+    setShowModal(false);
+  };
+
   return (
-    <Link href="/auth/register" className="register-button">
-      Register
-    </Link>
+    <div>
+      <a onClick={openModal}>Register</a>
+      {showModal && <RegisterForm onClose={closeModal} />}
+    </div>
   );
-}
+};
+
+export default RegisterButton;

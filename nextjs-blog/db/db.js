@@ -10,5 +10,12 @@ const db = pgp({
   database: 'mymovies' // Name of your PostgreSQL database
 });
 
-// Export the connected database instance
+db.connect()
+  .then(obj => {
+    obj.done(); // success, release the connection
+  })
+  .catch(error => {
+    console.error('Error connecting to the database:', error);
+  });
+
 module.exports = db;

@@ -4,7 +4,7 @@ import LayoutStyles from './layout.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router'; // Import useRouter
 import RegisterButton from '../components/RegisterButton';
-
+import RegisterForm from './RegisterForm';
 
 const name = 'TOPList';
 export const siteTitle = 'TOPList';
@@ -46,7 +46,7 @@ export default function Layout({ children, home }) {
               <Link href="/upcoming">Upcoming</Link>
             </li>
             {/* Include the RegisterButton component here */}
-            <li><RegisterButton /></li>
+            <li className={styles.registerButton}><RegisterButton /></li>
           </ul>
         </nav>
       </header>

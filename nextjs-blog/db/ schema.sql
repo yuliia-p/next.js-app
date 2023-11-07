@@ -4,3 +4,6 @@ CREATE TABLE IF NOT EXISTS users (
     email VARCHAR (100) UNIQUE NOT NULL,
     password VARCHAR (100) NOT NULL
 );
+ALTER TABLE users
+ADD COLUMN first_name VARCHAR(50),
+ADD COLUMN last_name VARCHAR(50);
