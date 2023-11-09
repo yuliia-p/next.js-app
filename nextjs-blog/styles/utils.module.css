@@ -47,11 +47,143 @@
     flex-direction: row;
     text-align: start;
   }
+  .box {
+    height: 398px;
+    width: 649px;
+    background-color: #444444;
+
+  }
+  
+  .box  {
+    height: 398px;
+    left: auto;
+    /* position: fixed ; */
+    top: 10rem;
+    width: 661px;
+  }
+  
+  .box .overlap-group {
+    background-color: #444444;
+    height: 398px;
+    /* position: relative; */
+    width: 649px;
+  }
+  
+  .box .overlap {
+    height: 77px;
+    left: 282px;
+    /* position: absolute; */
+    /* top: 12px; */
+    width: 189px;
+  }
+  
+  .box .tagline {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    /* left: 0; */
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: absolute; */
+    /* top: 53px; */
+    white-space: nowrap;
+  }
+  
+  .box .title {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 48px;
+    font-weight: 400;
+    /* left: 0; */
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: absolute; */
+    /* top: 0; */
+  }
+  
+  .box .overview {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 279px;
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: absolute; */
+    top: 188px;
+    width: 354px;
+  }
+  
+  .box .text-wrapper {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+  }
+  
+  .box .span {
+    font-family: "Roboto", Helvetica;
+  }
+  
+  .box .poster {
+    height: 376px;
+    left: 16px;
+    object-fit: cover;
+    /* position: absolute; */
+    top: 12px;
+    width: 250px;
+  }
+  
+  .box .runtime {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 279px;
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: absolute; */
+    top: 157px;
+  }
+  
+  .box .div {
+    height: 43px;
+    left: 279px;
+    /* position: absolute; */
+    top: 114px;
+    width: 220px;
+  }
+  
+  .box .genres {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: absolute; */
+    top: 21px;
+  }
+  
+  .box .release-date {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 18px;
+    font-weight: 400;
+    left: 0;
+    letter-spacing: 0;
+    line-height: normal;
+    /* position: absolute; */
+    top: 0;
+  }
 }
 
 /* Styles for .spanTitle */
 .spanTitle {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 3em;
   position: sticky;
   background-image: linear-gradient(#E9FF70, #E9FF70);
