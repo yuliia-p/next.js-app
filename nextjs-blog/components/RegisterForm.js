@@ -33,6 +33,7 @@ export default function RegisterForm({ onClose }) {
   }
 
   return (
+    <div className={utilStyles.regModal}>
     <div className={utilStyles.registrationModal}>
       <div className={utilStyles.modalContent}>
         <h2>Register</h2>
@@ -49,10 +50,11 @@ export default function RegisterForm({ onClose }) {
           <label className="registration-label">Password:
             <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
           </label>
-          <button className="registration-button" type="submit">Register</button>
+          <button className={utilStyles.loadMoreButton} type="submit">Register</button>
         </form>
-        <button className="registration-close-button" onClick={onClose}>Close</button>
+        <button className={utilStyles.loadMoreButton} onClick={onClose}>Close</button>
       </div>
+    </div>
     </div>
   );
 }

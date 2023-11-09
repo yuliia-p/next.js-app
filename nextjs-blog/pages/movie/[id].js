@@ -66,37 +66,44 @@ export const Movie = ({
 }) => {
   return (
     <div className={utilStyles.box}>
-      <div className={utilStyles.overlapGroup}>
-        <div className={utilStyles.overlap}>
-          <p className={utilStyles.tagline}>{tagline}</p>
-          <div className={utilStyles.title}>{title}</div>
-        </div>
-        <p className={utilStyles.overview}>
-          <span className={utilStyles.textWrapper}>Overview</span>
-          <span className={utilStyles.span}>: {overview}</span>
+  <div className={utilStyles.overlapGroup}>
+    <div className={utilStyles.imageContainer}>
+      <img
+        className={utilStyles.poster}
+        alt="Poster"
+        src={`https://image.tmdb.org/t/p/w185${posterPath}`}
+      />
+    </div>
+    <div className={utilStyles.overlap}>
+      <p className={utilStyles.tagline}>{tagline}</p>
+      <div className={utilStyles.title}>{title}</div>
+      <div className={utilStyles.textContainer}>
+      <p className={utilStyles.overview}>
+        <span className={utilStyles.textWrapper}>Overview</span>
+        <span className={utilStyles.span}>: {overview}</span>
+      </p>
+      <p className={utilStyles.runtime}>
+        <span className={utilStyles.textWrapper}>Runtime</span>
+        <span className={utilStyles.span}>: {runtime} minutes</span>
+      </p>
+      <div className={utilStyles.div}>
+        <p className={utilStyles.genres}>
+          <span className={utilStyles.textWrapper}>Genres</span>
+          <span className={utilStyles.span}>
+            : {genres.map((genre) => genre.name).join(', ')}
+          </span>
         </p>
-        <img
-          className={utilStyles.poster}
-          alt="Poster"
-          src={`https://image.tmdb.org/t/p/w185${posterPath}`}
-        />
-        <p className={utilStyles.runtime}>
-          <span className={utilStyles.textWrapper}>Runtime</span>
-          <span className={utilStyles.span}>: {runtime} minutes</span>
+        <p className={utilStyles.releaseDate}>
+          <span className={utilStyles.textWrapper}>Release Date</span>
+          <span className={utilStyles.span}>: {releaseDate}</span>
         </p>
-        <div className={utilStyles.div}>
-          <p className={utilStyles.genres}>
-            <span className={utilStyles.textWrapper}>Genres</span>
-            <span className={utilStyles.span}>
-              : {genres.map((genre) => genre.name).join(', ')}
-            </span>
-          </p>
-          <p className={utilStyles.releaseDate}>
-            <span className={utilStyles.textWrapper}>Release Date</span>
-            <span className={utilStyles.span}>: {releaseDate}</span>
-          </p>
-        </div>
       </div>
     </div>
+    </div>
+    
+  </div>
+</div>
+
+    
   );
 };
