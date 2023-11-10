@@ -1,5 +1,5 @@
 /* utils.module.css */
-@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@100;300;400;700&display=swap');
 
 /* Common styles for .moviesList */
 .moviesList {
@@ -40,18 +40,104 @@
   padding: 16px;
 }
 
-/* Responsive styles for .movieDetails */
-@media (min-width: 768px) {
-  .movieDetails {
-    margin: 16px;
-    flex-direction: row;
-    text-align: start;
+/* Responsive styles for movieDetails */
+
+  .box {
+    background-color: #444444;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 376px;
+    width: 80%; 
+    margin: 0 auto; 
+  }
+  
+  .overlapGroup {
+    display: flex;
+    align-items: center;
+    width: 100%; /* Ensure the container takes full width */
+  }
+  
+  .imageContainer {
+    flex-basis: 25%; /* Adjust the percentage for the image container */
+  }
+  
+  .poster {
+    height: 376px;
+    width: 250px;
+  }
+  
+  .overlap {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-basis: 75%; /* Adjust the percentage for the text container */
+  }
+  
+  .tagline {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 20px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .title {
+    color: #ffffff;
+    font-family: "Bebas Neue", Helvetica;
+    font-size: 48px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .overview,
+  .runtime,
+  .genres,
+  .releaseDate {
+    color: #ffffff;
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 18px;
+    font-weight: 400;
+    letter-spacing: 0;
+    line-height: normal;
+  }
+  
+  .textWrapper {
+    font-family: "Bebas Neue", sans-serif;
+    font-size: 20px;
+  }
+  
+  .span {
+    font-family: Roboto, sans-serif;
+    font-weight: 300;
+  }
+
+
+@media (max-width: 767px) {
+  .box {
+    flex-direction: column; /* Change to a column layout */
+    height: auto; /* Allow the height to adjust based on content */
+  }
+
+  .overlapGroup {
+    flex-direction: column; /* Align items in a row for larger screens */
+  }
+
+  .imageContainer {
+    flex-basis: 100%; /* Adjust the percentage for the image container */
+  }
+
+  .overlap {
+    flex-basis: 100%; /* Adjust the percentage for the text container */
+    margin-left: 0; /* Add some margin for spacing between image and text */
   }
 }
 
 /* Styles for .spanTitle */
 .spanTitle {
-  font-family: 'Bebas Neue', cursive;
+  font-family: 'Bebas Neue', sans-serif;
   font-size: 3em;
   position: sticky;
   background-image: linear-gradient(#E9FF70, #E9FF70);
@@ -138,37 +224,60 @@
 
 /* Style for the modal content */
 .modalContent {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
+  font-family: 'Bebas Neue', serif;
+  font-size: 1.5rem;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  background-color: #fefefe;
+  margin: 3rem auto;
+  padding: 1.1rem;
+  border: none;
+  max-width: 40%;
 }
 
-.registration-modal {
-  display: none;
+.modal {
   position: fixed;
-  top: 0;
+  padding-top: 10rem;
   left: 0;
+  top: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 999; /* Ensure the modal appears above other content */
+  overflow: auto;
+  background-color: rgb(0 0 0);
+  background-color: rgba(0, 0, 0, 0.632);
+  z-index: 999; 
 }
+
 
 /* Style for the label elements */
+.inputStyle {
+  display:block;
+  font-family: 'Bebas Neue', serif;
+  width: 100%;
+  cursor: pointer;
+  padding-top: 20px;
+  font-size: 25px;
+  margin-bottom: 1rem;
+  border: solid 1px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
 .registration-label {
-  /* Your label styles here */
+  position: relative;
 }
 
-/* Style for the registration button */
-.registration-button {
-  /* Your button styles here */
+.inputStyle:focus {
+  border: solid 2px #E9FF70;
+  background-color: #E9FF70;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
-/* Style for the close button */
-.registration-close-button {
-  /* Your close button styles here */
+@media (max-width: 767px) {
+  .modalContent {
+    min-width: 90%;
+  }
 }

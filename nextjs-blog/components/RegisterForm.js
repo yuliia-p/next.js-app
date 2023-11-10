@@ -33,26 +33,29 @@ export default function RegisterForm({ onClose }) {
   }
 
   return (
-    <div className={utilStyles.registrationModal}>
+    <div className={utilStyles.modal}>
       <div className={utilStyles.modalContent}>
-        <h2>Register</h2>
+        <p>Join Us!</p>
         <form onSubmit={handleRegister}>
-          <label className="registration-label">First Name:
-            <input type="text" value={first_name} onChange={(e) => setFirstName(e.target.value)} required />
+          <label className="registration-label">
+            <input className={utilStyles.inputStyle} type="text" value={first_name} onChange={(e) => setFirstName(e.target.value)} required placeholder='First Name'/>
           </label>
-          <label className="registration-label">Last Name:
-            <input type="text" value={last_name} onChange={(e) => setLastName(e.target.value)} required />
+          <label className="registration-label">
+            <input className={utilStyles.inputStyle} type="text" value={last_name} onChange={(e) => setLastName(e.target.value)} required placeholder='Last Name'/>
           </label>
-          <label className="registration-label">Email:
-            <input type="email" value={email} onChange={(e) => setEmail(e.target.value)} required />
+          <label className="registration-label">
+            <input className={utilStyles.inputStyle} type="email" value={email} onChange={(e) => setEmail(e.target.value)} required placeholder='Email'/>
           </label>
-          <label className="registration-label">Password:
-            <input type="password" value={password} onChange={(e) => setPassword(e.target.value)} required />
+          <label className="registration-label">
+            <input className={utilStyles.inputStyle} type="password" value={password} onChange={(e) => setPassword(e.target.value)} required placeholder='Password'/>
           </label>
-          <button className="registration-button" type="submit">Register</button>
+          <button style={{marginBottom: '1rem'}} className={utilStyles.loadMoreButton} type="submit">Register</button>
         </form>
-        <button className="registration-close-button" onClick={onClose}>Close</button>
+        <button className={utilStyles.loadMoreButton} onClick={onClose}>Close</button>
       </div>
     </div>
   );
 }
+/*
+Got an account? Sign in!
+*/

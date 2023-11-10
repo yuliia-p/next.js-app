@@ -13,9 +13,6 @@ export default function Layout({ children, home }) {
   const router = useRouter();
   console.log('Current path:', router.pathname);
 
-  // const liElements = document.querySelectorAll('.nav li');
-  // console.log('LI Elements:', liElements);
-
   return (
     <div className={styles.container}>
       <Head>
@@ -45,8 +42,6 @@ export default function Layout({ children, home }) {
             <li className={router.pathname === '/upcoming' ? styles.active : ''}>
               <Link href="/upcoming">Upcoming</Link>
             </li>
-            {/* Include the RegisterButton component here */}
-            <li className={styles.registerButton}><RegisterButton /></li>
           </ul>
         </nav>
       </header>
@@ -54,9 +49,14 @@ export default function Layout({ children, home }) {
       {!home && (
         <div className={LayoutStyles.backToHome}>
           <Link href="/">← Back to home</Link>
+          
         </div>
       )}
+
+      {/* RegisterButton in the footer ?? */}
+      <footer className={LayoutStyles.footer}>
+      <RegisterButton  />
+      </footer>
     </div>
   );
 }
-console.log()

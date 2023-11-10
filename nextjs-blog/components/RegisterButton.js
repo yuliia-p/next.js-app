@@ -14,10 +14,12 @@ const RegisterButton = () => {
   };
 
   return (
-    <div>
-      <a onClick={openModal}>Register</a>
+    <>
+      <button className={utilStyles.loadMoreButton}
+      onClick={openModal}>Register
+      </button>
       {showModal && <RegisterForm onClose={closeModal} />}
-    </div>
+    </>
   );
 };
 
