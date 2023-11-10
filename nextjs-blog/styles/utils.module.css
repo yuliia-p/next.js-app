@@ -224,27 +224,18 @@
 
 /* Style for the modal content */
 .modalContent {
-  background-color: #fff;
-  padding: 20px;
-  border-radius: 5px;
+  font-family: 'Bebas Neue', serif;
+  font-size: 1.5rem;
   text-align: center;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  position: relative;
+  background-color: #fefefe;
+  margin: 3rem auto;
+  padding: 1.1rem;
+  border: none;
+  max-width: 40%;
 }
 
-/* .registration-modal {
-  display: none;
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: rgba(0, 0, 0, 0.5);
-  justify-content: center;
-  align-items: center;
-  z-index: 999; 
-} */
-.regModal {
-  display: none;
+.modal {
   position: fixed;
   padding-top: 10rem;
   left: 0;
@@ -254,18 +245,39 @@
   overflow: auto;
   background-color: rgb(0 0 0);
   background-color: rgba(0, 0, 0, 0.632);
+  z-index: 999; 
 }
+
+
 /* Style for the label elements */
+.inputStyle {
+  display:block;
+  font-family: 'Bebas Neue', serif;
+  width: 100%;
+  cursor: pointer;
+  padding-top: 20px;
+  font-size: 25px;
+  margin-bottom: 1rem;
+  border: solid 1px;
+  border-top: none;
+  border-left: none;
+  border-right: none;
+  outline: none;
+}
 .registration-label {
-  /* Your label styles here */
+  position: relative;
 }
 
-/* Style for the registration button */
-.registration-button {
-  /* Your button styles here */
+.inputStyle:focus {
+  border: solid 2px #E9FF70;
+  background-color: #E9FF70;
+  border-top: none;
+  border-left: none;
+  border-right: none;
 }
 
-/* Style for the close button */
-.registration-close-button {
-  /* Your close button styles here */
+@media (max-width: 767px) {
+  .modalContent {
+    min-width: 90%;
+  }
 }
