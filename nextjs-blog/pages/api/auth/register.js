@@ -34,7 +34,6 @@ export default async function handler(req, res) {
       console.error('Duplicate key violation. Email address already registered.');
       return res.status(409).json({ error: 'Email address already registered' });
     }
-
     console.error('Unknown error during registration:', error);
     return res.status(500).json({ error: 'Registration failed' });
   }
