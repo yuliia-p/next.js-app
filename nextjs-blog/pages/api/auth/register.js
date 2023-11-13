@@ -1,3 +1,5 @@
+// pages/api/auth/register.js
+
 import { getDB } from '../../../db/index';
 import bcrypt from 'bcryptjs';
 
@@ -13,9 +15,9 @@ export default async function handler(req, res) {
     return res.status(400).json({ error: 'Missing required fields' });
   }
 
-  try {
-    const dbInstance = getDB();
+  const dbInstance = getDB(); // Create a new instance of the database connection
 
+  try {
     // Hash the password before storing it in the database
     const hashedPassword = await bcrypt.hash(password, 10);
 

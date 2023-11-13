@@ -1,18 +1,9 @@
-import pgPromise from 'pg-promise';
-
-let dbInstance;
+import pgp from 'pg-promise';
 
 export function getDB() {
-  if (!dbInstance) {
-    const pgp = pgPromise();
-    const connectionString = process.env.DATABASE_URL; // Use your environment variable here
-
-    if (!connectionString) {
-      throw new Error('DATABASE_URL environment variable is not defined');
-    }
-
-    dbInstance = pgp(connectionString);
-  }
+  const pgpInstance = pgp();
+  const connectionString = process.env.DATABASE_URL;
+  const dbInstance = pgpInstance(connectionString);
 
   return dbInstance;
 }
