@@ -1,8 +1,7 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
-import Layout from '../../components/layout';
 import utilStyles from '../../styles/utils.module.css'
-import styles from '../../styles/utils.module.css'
+import Layout from '../../components/layout';
 
 function MovieDetails() {
   const router = useRouter();

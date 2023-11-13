@@ -4,14 +4,12 @@ import LayoutStyles from './layout.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router'; // Import useRouter
 import RegisterButton from '../components/RegisterButton';
-import RegisterForm from './RegisterForm';
 
 const name = 'TOPList';
 export const siteTitle = 'TOPList';
 
 export default function Layout({ children, home }) {
   const router = useRouter();
-  console.log('Current path:', router.pathname);
 
   return (
     <div className={styles.container}>
@@ -49,11 +47,8 @@ export default function Layout({ children, home }) {
       {!home && (
         <div className={LayoutStyles.backToHome}>
           <Link href="/">← Back to home</Link>
-          
         </div>
       )}
-
-      {/* RegisterButton in the footer ?? */}
       <footer className={LayoutStyles.footer}>
       <RegisterButton  />
       </footer>

@@ -1,7 +1,6 @@
 import Head from 'next/head';
-import Layout, { siteTitle } from '../components/layout';
+import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
-import Link from 'next/link';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 
@@ -9,7 +8,8 @@ export default function Home() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1); // Initialize with page 1
   const router = useRouter(); // Initialize the router here
-
+  console.log("router.pathname", router.pathname)
+  
   const loadNextPage = () => {
     // Increment the page number and update the state
     setPage(page + 1);
