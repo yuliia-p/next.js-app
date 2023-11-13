@@ -1,4 +1,4 @@
-import db from '../../../db/index';
+import { getDB } from '../../../db/index';
 import bcrypt from 'bcryptjs';
 
 export default async function handler(req, res) {
@@ -14,10 +14,12 @@ export default async function handler(req, res) {
   }
 
   try {
+    const dbInstance = getDB();
+
     // Hash the password before storing it in the database
     const hashedPassword = await bcrypt.hash(password, 10);
 
-    const result = await db.one(
+    const result = await dbInstance.one(
       'INSERT INTO users (email, password, first_name, last_name) VALUES($1, $2, $3, $4) RETURNING id',
       [email, hashedPassword, first_name, last_name]
     );

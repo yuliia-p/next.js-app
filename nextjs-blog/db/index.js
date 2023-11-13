@@ -1,29 +1,18 @@
-// // db/index.js
-// const pgp = require('pg-promise')();
+import pgPromise from 'pg-promise';
 
-// // Load your database URL from environment variables
-// const databaseUrl = process.env.DATABASE_URL;
+let dbInstance;
 
-// const db = pgp(databaseUrl);
+export function getDB() {
+  if (!dbInstance) {
+    const pgp = pgPromise();
+    const connectionString = process.env.DATABASE_URL; // Use your environment variable here
 
-// export default db;
-const pgp = require('pg-promise')();
+    if (!connectionString) {
+      throw new Error('DATABASE_URL environment variable is not defined');
+    }
 
-// Define the database connection configuration
-const db = pgp({
-  host: 'localhost',
-  port: 5432,
-  user: 'yuliiapchelintseva',
-  password: 'junegloom',
-  database: 'mymovies'
-});
+    dbInstance = pgp(connectionString);
+  }
 
-db.connect()
-  .then(obj => {
-    obj.done(); // success, release the connection
-  })
-  .catch(error => {
-    console.error('Error connecting to the database:', error);
-  });
-
-export default db;
+  return dbInstance;
+}

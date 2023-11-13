@@ -1,15 +1,14 @@
 import { useState } from 'react';
 import utilStyles from '../styles/utils.module.css';
-import { useRouter } from 'next/router'; // Import the useRouter
+import { useRouter } from 'next/router';
 
-
-export default function RegisterForm({ onClose }) {
+export default function RegisterForm({ onClose, onSwitchToLogin }) {
   const [first_name, setFirstName] = useState('');
   const [last_name, setLastName] = useState('');
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
-  const [loading, setLoading] = useState(false); 
-  const router = useRouter(); // Get the router
+  const [loading, setLoading] = useState(false);
+  const router = useRouter();
 
   const handleRegister = async () => {
     try {
@@ -20,23 +19,19 @@ export default function RegisterForm({ onClose }) {
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ email, password, first_name, last_name }),
       });
-      console.log('response', response);
-      console.log('Sending registration request:', { email, first_name, last_name });
 
       if (response.ok) {
-        // Registration successful, navigate to the profile page
-        router.push('/profile'); // Replace '/profile' with the actual path to your profile page
+        const { userId } = await response.json();
+        router.push(`/profile/${userId}`);
       } else {
-        // Handle registration error
         console.error('Registration failed');
       }
     } catch (error) {
-      // Handle fetch or other errors
       console.error('Error during registration:', error);
-    }finally {
+    } finally {
       setLoading(false);
     }
-  }
+  };
 
   return (
     <div className={utilStyles.modal}>
@@ -64,11 +59,13 @@ export default function RegisterForm({ onClose }) {
             {loading ? 'Registering...' : 'Register'}
           </button>
         </form>
-        <button className={utilStyles.loadMoreButton} onClick={onClose}>Close</button>
+        <p style={{ marginTop: '1rem' }}>
+          Got an account? <button className={utilStyles.loadMoreButton} onClick={onSwitchToLogin}>Sign in!</button>
+        </p>
+        <button className={utilStyles.loadMoreButton} onClick={onClose}>
+          Close
+        </button>
       </div>
     </div>
   );
 }
-/*
-Got an account? Sign in!
-*/

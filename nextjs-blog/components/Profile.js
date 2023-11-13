@@ -1,5 +1,7 @@
-function Profile({ userData }) {
-  // Assuming userData.movies is an array containing the user's added movies
+import React from 'react';
+
+const Profile = ({ userData }) => {
+  // userData.movies is an array containing the user's added movies
   const addedMovies = userData.movies || [];
 
   return (
@@ -21,6 +23,6 @@ function Profile({ userData }) {
       )}
     </div>
   );
-}
+};
 
 export default Profile;
