@@ -1,9 +1,9 @@
-import pgp from 'pg-promise';
+import pgPromise from 'pg-promise';
 
 export function getDB() {
-  const pgpInstance = pgp();
+  const pgp = pgPromise();
   const connectionString = process.env.DATABASE_URL;
-  const dbInstance = pgpInstance(connectionString);
+  const db = pgp(connectionString);
 
-  return dbInstance;
+  return db;
 }
