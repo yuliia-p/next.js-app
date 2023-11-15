@@ -30,7 +30,6 @@ export async function getWishlistByUserId(userId) {
 }
 
 // Function to fetch movies based on movie IDs from the database
-
 export async function getMoviesByUserId(imdbIds) {
   try {
     // Check if the array of imdbIds is not empty before constructing the SQL query
@@ -45,17 +44,21 @@ export async function getMoviesByUserId(imdbIds) {
     throw error;
   }}
 
-// export async function getMoviesByUserId(movieIds) {
-//   try {
-//     // Check if the array of movieIds is not empty before constructing the SQL query
-//     if (movieIds.length === 0) {
-//       return []; // Return an empty array if there are no movieIds
-//     }
 
-//     const movies = await db.any('SELECT * FROM movies WHERE id IN ($1:csv)', [movieIds]);
-//     return movies;
-//   } catch (error) {
-//     console.error('Error fetching movies by movie IDs:', error);
-//     throw error;
-//   }
-// }
+  export async function addToWatchlist(userId, movieId, title, tagline, overview, posterPath) {
+    try {
+      const query = `
+        INSERT INTO wishlist (user_id, movie_id, title, tagline, overview, poster_path)
+        VALUES ($1, $2, $3, $4, $5, $6)
+        RETURNING id;
+      `;
+  
+      const result = await db.one(query, [userId, movieId, title, tagline, overview, posterPath]);
+      console.log('Added to Watchlist:', title);
+      return result;
+    } catch (error) {
+      console.error('Error adding to Watchlist:', error);
+      throw error;
+    }
+  }
+  

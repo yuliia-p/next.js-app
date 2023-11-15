@@ -50,7 +50,7 @@ export default function Layout({ children, home }) {
         </div>
       )}
       <footer className={LayoutStyles.footer}>
-      <RegisterButton  />
+        <RegisterButton  />
       </footer>
     </div>
   );

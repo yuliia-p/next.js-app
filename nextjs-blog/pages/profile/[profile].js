@@ -1,6 +1,8 @@
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+import Layout from '../../components/layout';
 // import { getUserById, getWishlistByUserId, getMoviesByUserId } from '../../lib/db';
+import utilStyles from '../../styles/utils.module.css'
 
 const Profile = () => {
   const router = useRouter();
@@ -37,11 +39,9 @@ const Profile = () => {
   }
 
   return (
-    <div>
-      <h1>Your Profile</h1>
-      <p>ID: {userProfile.user.id}</p>
-      <p>Name: {userProfile.user.first_name} {userProfile.user.last_name}</p>
-      <p>Email: {userProfile.user.email}</p>
+    <Layout>
+      <div >
+      <h1>Hiii {userProfile.user.first_name}!</h1>
 
       <h2>Your Wishlist</h2>
       {userProfile.wishlist.map((item) => (
@@ -54,9 +54,12 @@ const Profile = () => {
       {userProfile.movies.map((movie) => (
       <div key={movie.imdb_id}>
         <p>Title: {movie.title}</p>
+        <p>Title: {movie.overview}</p>
       </div>
     ))}
     </div>
+    </Layout>
+    
   );
 };
 

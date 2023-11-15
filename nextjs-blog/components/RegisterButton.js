@@ -17,7 +17,7 @@ const RegisterButton = () => {
   };
 
   return (
-    <>
+    <div className={utilStyles.buttonHolder}>
       <button className={utilStyles.loadMoreButton} onClick={() => openModal(false)}>
         Register
       </button>
@@ -25,7 +25,7 @@ const RegisterButton = () => {
         Login
       </button>
       {showModal && (showLogin ? <LoginForm onClose={closeModal} /> : <RegisterForm onClose={closeModal} onSwitchToLogin={() => openModal(true)} />)}
-    </>
+    </div>
   );
 };
 

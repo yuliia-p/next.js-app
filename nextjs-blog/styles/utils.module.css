@@ -28,12 +28,13 @@
 /* Shared styles for .movieItem and .movieDetails */
 .movieItem,
 .movieDetails {
-  background-color: #444;
-  color: #fff;
+  background-color: #fff;;
+  color: #444;
   display: flex;
   align-items: center;
   text-align: center;
   flex-direction: column;
+  border: solid 1px black;
 }
 
 .movieItem {
@@ -47,8 +48,8 @@
     display: flex;
     align-items: center;
     justify-content: center;
-    height: 376px;
-    width: 80%; 
+    /* height: 376px; */
+    width: 90%; 
     margin: 0 auto; 
   }
   
@@ -56,26 +57,32 @@
     display: flex;
     align-items: center;
     width: 100%; /* Ensure the container takes full width */
+    background-color: white;
+    color: #444;
+    border: solid 1px black;
   }
   
   .imageContainer {
-    flex-basis: 25%; /* Adjust the percentage for the image container */
+    flex-basis: 20%; /* Adjust the percentage for the image container */
   }
   
   .poster {
-    height: 376px;
-    width: 250px;
+    height: 465px;
+    border-right: solid;
+    /* 376px; */
+    
+    /* width: 250px; */
   }
   
   .overlap {
     display: flex;
     flex-direction: column;
     align-items: flex-start;
-    flex-basis: 75%; /* Adjust the percentage for the text container */
+    flex-basis: 80%; /* Adjust the percentage for the text container */
+    margin-left: 1rem;
   }
   
   .tagline {
-    color: #ffffff;
     font-family: "Bebas Neue", Helvetica;
     font-size: 20px;
     font-weight: 400;
@@ -84,7 +91,6 @@
   }
   
   .title {
-    color: #ffffff;
     font-family: "Bebas Neue", Helvetica;
     font-size: 48px;
     font-weight: 400;
@@ -96,7 +102,6 @@
   .runtime,
   .genres,
   .releaseDate {
-    color: #ffffff;
     font-family: "Bebas Neue", sans-serif;
     font-size: 18px;
     font-weight: 400;
@@ -123,15 +128,24 @@
 
   .overlapGroup {
     flex-direction: column; /* Align items in a row for larger screens */
+
   }
 
   .imageContainer {
     flex-basis: 100%; /* Adjust the percentage for the image container */
   }
-
+  .poster {
+    height: 468px;
+    border: solid;
+    border-top: none;
+    /* 376px; */
+    
+    /* width: 250px; */
+  }
   .overlap {
     flex-basis: 100%; /* Adjust the percentage for the text container */
     margin-left: 0; /* Add some margin for spacing between image and text */
+    align-items: center;
   }
 }
 
@@ -150,7 +164,8 @@
 /* Styles for .movieOverview */
 .movieOverview {
   font-size: 14px;
-  color: #ccc;
+  /* color: #ccc; */
+  color: #444;
   margin: 0;
   text-align: start;
 }
@@ -280,4 +295,8 @@
   .modalContent {
     min-width: 90%;
   }
+}
+.buttonHolder {
+  display: flex;
+  justify-content: space-evenly;
 }

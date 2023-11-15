@@ -2,9 +2,7 @@
 .container {
   max-width: 100%; 
   margin: 0 auto;
-  /* padding: 0 16px; */
-  background-color: #1C1C1C; /* Dark background color */
-  /* color: #fff; White text color */
+
 }
 
 /* Define styles for individual column items (adjust width as needed) */
@@ -44,12 +42,12 @@
 /* Style the <Link> component itself */
 .nav li a {
   text-decoration: none;
-  color: white;
+  color: #333;
   font-weight: bold;
 }
 
 .nav li a:hover {
-  color: #333;
+  color: black;
 }
 
 .nav li.active {
@@ -84,4 +82,10 @@
   justify-content: center;
   align-items: center;
   z-index: 999; /* Ensure the modal appears above other content */
+}
+
+.footer {
+  margin-top: 1rem;
+  background-color: #a5a5a5;
+  padding: 2rem;
 }
