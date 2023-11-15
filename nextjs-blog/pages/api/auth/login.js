@@ -19,6 +19,8 @@ export default async function handler(req, res) {
     // Retrieve user from the database based on the email
     const user = await database.oneOrNone('SELECT * FROM users WHERE email = $1', email);
 
+    console.log('Retrieved user:', user);
+
     // Check if the user exists
     if (!user) {
       return res.status(401).json({ error: 'Invalid credentials' });
@@ -33,7 +35,10 @@ export default async function handler(req, res) {
 
     // Login successful, return the user ID (you might return additional user data)
     const redirectUrl = `/profile/${user.id}`;
+    console.log('Retrieved redirectUrl:', redirectUrl);
+    
     return res.status(200).json({ userId: user.id, redirectUrl });
+  
   } catch (error) {
     console.error('Error during login:', error);
     return res.status(500).json({ error: 'Login failed' });
