@@ -1,47 +1,37 @@
-// Import required modules
 import { useEffect, useState } from 'react';
 import { useRouter } from 'next/router';
+// import { getUserById, getWishlistByUserId, getMoviesByUserId } from '../../lib/db';
 
-// Import your database functions from lib/db.js
-import { getUserById, getWishlistByUserId, getMoviesByUserId } from '../../lib/db';
-
-// Your Profile component
 const Profile = () => {
   const router = useRouter();
   const [userProfile, setUserProfile] = useState(null);
 
+  console.log("router.query", router.query)
+
   useEffect(() => {
     const fetchUserProfile = async () => {
       try {
-        // Get the user ID from the route parameter
-        const userId = router.query.userId;
+        const response = await fetch(`/api/auth/user/${router.query.profile}`);
 
-        // Fetch user profile data from the database
-        const user = await getUserById(userId);
-        const wishlist = await getWishlistByUserId(userId);
-        const movieIds = wishlist.map((item) => item.movie_id);
-        const movies = await getMoviesByUserId(movieIds);
-
-        // Construct the user profile object
-        const userProfileData = {
-          user,
-          wishlist,
-          movies,
-        };
-
-        setUserProfile(userProfileData);
+        if (response.ok) {
+          const userProfileData = await response.json();
+          console.log('userProfileData profile', userProfileData)
+          setUserProfile(userProfileData);
+        } else {
+          console.error('Failed to fetch user profile. Server returned:', response.status, response.statusText);
+          const errorResponse = await response.text();
+          console.error('Server response:', errorResponse);
+        }
       } catch (error) {
         console.error('Error fetching user profile:', error);
       }
     };
 
-    // Call the function to fetch user profile data when the component mounts
-    if (router.query.userId) {
+    if (router.query.profile) {
       fetchUserProfile();
     }
-  }, [router.query.userId]);
+  }, [router.query.profile]);
 
-  // Additional check for userProfile being null after the initial load
   if (!userProfile || !userProfile.user) {
     return <div>Loading...</div>;
   }
@@ -62,10 +52,10 @@ const Profile = () => {
 
       <h2>Your Movies</h2>
       {userProfile.movies.map((movie) => (
-        <div key={movie.id}>
-          <p>Title: {movie.title}</p>
-        </div>
-      ))}
+      <div key={movie.imdb_id}>
+        <p>Title: {movie.title}</p>
+      </div>
+    ))}
     </div>
   );
 };

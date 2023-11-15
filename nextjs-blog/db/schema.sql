@@ -10,13 +10,14 @@ CREATE TABLE IF NOT EXISTS users (
 -- Movies table
 CREATE TABLE IF NOT EXISTS movies (
     id SERIAL PRIMARY KEY,
-    imdb_id VARCHAR(255) UNIQUE NOT NULL,
+    imdb_id VARCHAR(255) UNIQUE NOT NULL, -- Use IMDb ID as the primary identifier
     title VARCHAR(255),
     tagline VARCHAR(255),
     overview TEXT,
     poster_path VARCHAR(255),
     genres VARCHAR(255)[]
 );
+
 
 -- Wishlist table
 CREATE TABLE IF NOT EXISTS wishlist (

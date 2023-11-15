@@ -21,7 +21,11 @@ export default function RegisterForm({ onClose, onSwitchToLogin }) {
       });
 
       if (response.ok) {
+        console.log("response", response);
+        
         const { userId } = await response.json();
+        console.log("userId", userId)
+
         router.push(`/profile/${userId}`);
       } else {
         console.error('Registration failed');
