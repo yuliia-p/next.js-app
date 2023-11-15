@@ -10,6 +10,7 @@
     "gray-matter": "^4.0.3",
     "next": "latest",
     "pg": "^8.11.3",
+    "pg-native": "^3.0.1",
     "pg-promise": "^11.5.4",
     "react": "18.2.0",
     "react-dom": "18.2.0"
