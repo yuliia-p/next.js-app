@@ -3,7 +3,7 @@ import styles from './layout.module.css';
 import LayoutStyles from './layout.module.css';
 import Link from 'next/link';
 import { useRouter } from 'next/router'; // Import useRouter
-import RegisterButton from '../components/RegisterButton';
+import AuthenticationButton from '../components/AuthenticationButton';
 
 const name = 'TOPList';
 export const siteTitle = 'TOPList';
@@ -50,7 +50,7 @@ export default function Layout({ children, home }) {
         </div>
       )}
       <footer className={LayoutStyles.footer}>
-        <RegisterButton  />
+        <AuthenticationButton  />
       </footer>
     </div>
   );

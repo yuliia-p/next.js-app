@@ -1,15 +1,18 @@
-import Head from 'next/head';
 import Layout from '../components/layout';
 import utilStyles from '../styles/utils.module.css';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
+import { useSession } from 'next-auth/react';
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
-  const [page, setPage] = useState(1); // Initialize with page 1
-  const router = useRouter(); // Initialize the router here
-  console.log("router.pathname", router.pathname)
+  const [page, setPage] = useState(1); 
+  const router = useRouter(); 
   
+  const { data: session, status } = useSession();
+  console.log('Session status:', status);
+  console.log('Session data:', session);
+
   const loadNextPage = () => {
     // Increment the page number and update the state
     setPage(page + 1);
