@@ -3,10 +3,12 @@ import utilStyles from '../styles/utils.module.css';
 import { useRouter } from 'next/router';
 import { useState, useEffect } from 'react';
 import { useSession } from 'next-auth/react';
+import LoginForm from '../components/LoginForm';
 
 export default function Home() {
   const [movies, setMovies] = useState([]);
   const [page, setPage] = useState(1); 
+  const [user, setUser] = useState(null);
   const router = useRouter(); 
   
   const { data: session, status } = useSession();
@@ -17,6 +19,18 @@ export default function Home() {
     // Increment the page number and update the state
     setPage(page + 1);
   };
+
+  const handleSignIn = (result) => {
+    const { user, token } = result;
+    window.localStorage.setItem('book-lover-jwt', token);
+    setUser(user);
+  };
+
+  const handleSignOut = () => {
+    window.localStorage.removeItem('book-lover-jwt');
+    setUser(null);
+  };
+
 
   useEffect(() => {
     const fetchMovies = async () => {
@@ -75,6 +89,7 @@ export default function Home() {
           </button>
         </div>
       </section>
+      <LoginForm onSignIn={handleSignIn} />
     </Layout>
   );
 }

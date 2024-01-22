@@ -21,7 +21,7 @@ export async function getWishlistByUserId(userId) {
   try {
     console.log('Executing query: SELECT * FROM wishlist WHERE user_id = $1', [userId]);
     const wishlist = await db.any('SELECT * FROM wishlist WHERE user_id = $1', [userId]);
-    console.log('Query executed successfully');
+    console.log('Query executed successfully wishlist');
     return wishlist;
   } catch (error) {
     console.error('Error fetching wishlist by user ID:', error);

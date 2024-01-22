@@ -21,7 +21,9 @@ export default function LoginForm({ onClose }) {
       if (response.ok) {
         const userData = await response.json();
         console.log('hello userData', userData)
-        
+
+        onSignIn(userData);
+
         // Redirect to the profile page with the user ID
         router.push(userData.redirectUrl);
       } else {

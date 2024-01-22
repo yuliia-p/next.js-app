@@ -10,6 +10,7 @@
     "dgram": "^1.0.1",
     "dns": "^0.2.2",
     "gray-matter": "^4.0.3",
+    "jsonwebtoken": "^9.0.2",
     "native-dns-cache": "^0.0.2",
     "next": "^14.0.2",
     "next-auth": "^4.24.5",

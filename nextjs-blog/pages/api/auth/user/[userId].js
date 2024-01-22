@@ -30,11 +30,13 @@ export default async function handler(req, res) {
     // Combine user, wishlist, and movie data
     const userProfile = {
       user,
+      password,
       wishlist,
       movies,
     };
 
     res.status(200).json(userProfile);
+    
   } catch (error) {
     console.error('Error fetching user profile:', error);
     res.status(500).json({ message: 'Internal Server Error' });

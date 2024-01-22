@@ -1,5 +1,6 @@
 import { getDB } from '../../../db/index';
 import bcrypt from 'bcryptjs';
+import jwt from 'jsonwebtoken';
 
 export default async function handler(req, res) {
   if (req.method !== 'POST') {
@@ -32,13 +33,13 @@ export default async function handler(req, res) {
     if (!passwordMatch) {
       return res.status(401).json({ error: 'Invalid credentials' });
     }
+    const token = jwt.sign({ userId: user.id }, 'your-secret-key', { expiresIn: '1h' });
 
     // Login successful, return the user ID (you might return additional user data)
     const redirectUrl = `/profile/${user.id}`;
-    console.log('Retrieved redirectUrl:', redirectUrl);
     
-    return res.status(200).json({ userId: user.id, redirectUrl });
-  
+    return res.status(200).json({ token, userId: user.id, redirectUrl });
+
   } catch (error) {
     console.error('Error during login:', error);
     return res.status(500).json({ error: 'Login failed' });
